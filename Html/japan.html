@@ -1,0 +1,752 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Study in Japan | GBS International</title>
+    <style>
+      :root {
+        --navy: #0b2552;
+        --blue: #1555a4;
+        --red: #cf2335;
+        --purple: #4c287b;
+        --ink: #172033;
+        --muted: #687386;
+        --bg: #f5f7fb;
+        --line: #e4e9f1;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        color: var(--ink);
+        background: white;
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        width: min(1180px, 92%);
+        margin: auto;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .brand {
+        font-weight: 900;
+        color: var(--navy);
+        font-size: 20px;
+      }
+      .brand b {
+        color: var(--red);
+      }
+      .links {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--red), #b71d30);
+        color: #fff;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: 800;
+        border: 0;
+        cursor: pointer;
+        box-shadow: 0 7px 18px rgba(207, 35, 53, 0.18);
+      }
+      .hero {
+        min-height: 600px;
+        display: flex;
+        align-items: end;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        color: #fff;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(7, 27, 62, 0.92),
+          rgba(76, 40, 123, 0.45) 60%,
+          rgba(0, 0, 0, 0.18)
+        );
+      }
+      .hero .container {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 72px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 900;
+        font-size: 12px;
+        color: #d8e6ff;
+      }
+      .hero h1 {
+        font-size: clamp(44px, 7vw, 78px);
+        line-height: 1.02;
+        margin: 12px 0;
+      }
+      .hero p {
+        max-width: 760px;
+        font-size: 19px;
+        color: #edf2fb;
+      }
+      section {
+        padding: 72px 0;
+      }
+      .bg {
+        background: var(--bg);
+      }
+      .head {
+        max-width: 760px;
+        margin-bottom: 30px;
+      }
+      .head span {
+        color: var(--red);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 12px;
+      }
+      .head h2 {
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.12;
+        color: var(--navy);
+        margin: 8px 0;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .country-grid,
+      .city-grid,
+      .visa-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .country-card,
+      .city-card,
+      .visa-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(16, 35, 67, 0.08);
+        transition: 0.25s;
+      }
+      .country-card:hover,
+      .visa-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 45px rgba(16, 35, 67, 0.14);
+      }
+      .photo {
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .photo:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 38%,
+          rgba(5, 20, 48, 0.88)
+        );
+      }
+      .photo-title {
+        position: absolute;
+        z-index: 2;
+        left: 20px;
+        right: 20px;
+        bottom: 18px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 900;
+      }
+      .card-body {
+        padding: 20px;
+      }
+      .city-card .photo {
+        height: 240px;
+      }
+      .city-card h3 {
+        color: var(--navy);
+        margin: 0;
+      }
+      .visa-card {
+        padding: 24px;
+        cursor: pointer;
+        position: relative;
+      }
+      .visa-code {
+        display: inline-block;
+        background: #eef3fb;
+        color: var(--navy);
+        padding: 7px 10px;
+        border-radius: 8px;
+        font-weight: 900;
+      }
+      .visa-card h3 {
+        color: var(--navy);
+        margin: 14px 0 5px;
+      }
+      .visa-card:after {
+        content: "View requirements →";
+        display: block;
+        color: var(--red);
+        font-weight: 900;
+        margin-top: 18px;
+      }
+      .requirement {
+        display: none;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+      .visa-card.open .requirement {
+        display: block;
+      }
+      .requirement ul {
+        padding-left: 20px;
+      }
+      .apply {
+        background: linear-gradient(115deg, var(--navy), var(--purple));
+        color: #fff;
+        border-radius: 26px;
+        padding: 42px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
+        align-items: center;
+      }
+      .apply h2 {
+        margin: 0;
+        font-size: 38px;
+      }
+      .apply p {
+        color: #e7edf8;
+      }
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form input,
+      .form select,
+      .form textarea {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #dfe5ee;
+        border-radius: 10px;
+        font: inherit;
+      }
+      .form textarea {
+        grid-column: 1/-1;
+        min-height: 120px;
+      }
+      .form button {
+        grid-column: 1/-1;
+      }
+      footer {
+        background: #071a3a;
+        color: #dce5f4;
+        padding: 45px 0;
+        margin-top: 40px;
+      }
+      .notice {
+        font-size: 12px;
+        color: #aebbd0;
+        margin-top: 20px;
+      }
+      @media (max-width: 850px) {
+        .links a:not(.btn) {
+          display: none;
+        }
+        .country-grid,
+        .city-grid,
+        .visa-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .apply {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          min-height: 520px;
+        }
+      }
+      @media (max-width: 560px) {
+        .container {
+          width: min(94%, 1180px);
+        }
+        .country-grid,
+        .city-grid,
+        .visa-grid {
+          grid-template-columns: 1fr;
+        }
+        .photo {
+          height: 245px;
+        }
+        .city-card .photo {
+          height: 230px;
+        }
+        .hero {
+          min-height: 500px;
+        }
+        .hero .container {
+          padding-bottom: 48px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .apply {
+          padding: 28px 20px;
+        }
+        .apply h2 {
+          font-size: 30px;
+        }
+        .form {
+          grid-template-columns: 1fr;
+        }
+        .form textarea,
+        .form button {
+          grid-column: auto;
+        }
+        .nav {
+          height: 66px;
+        }
+        .brand {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+   <header class="site-header">
+      <div class="wrap nav-inner">
+        <div class="logo">
+          <div class="logo-mark">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="9"></circle>
+              <path
+                d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"
+              ></path>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <div class="brand">GBS <span>International</span></div>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#Home" class="active">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#Destination">Destinations</a></li>
+            <li><a href="#">Processes</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="#" class="btn btn-primary">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <path d="M16 2v4M8 2v4M3 10h18"></path>
+            </svg>
+            Book a Consultation
+          </a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <header
+      class="hero"
+      style="
+        background-image: url(&quot;https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1600&q=86&quot;);
+      "
+    >
+      <div class="container">
+        <div class="eyebrow">GBS Destination Guide</div>
+        <h1>🇯🇵 Study in Japan</h1>
+        <p>
+          Language schools, vocational education and university pathways in one
+          of Asia’s most advanced and culturally rich destinations.
+        </p>
+        <a class="btn" href="#visa-types">View Visa Types ↓</a>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <div class="head">
+          <span>About Japan</span>
+          <h2>Study, live and build your academic pathway</h2>
+          <p class="muted">
+            Language schools, vocational education and university pathways in
+            one of Asia’s most advanced and culturally rich destinations. GBS
+            provides counseling, institution-selection assistance, admission
+            documentation guidance and visa-file support based on the student's
+            profile and current requirements.
+          </p>
+        </div>
+        <div class="city-grid">
+          <div class="city-card">
+            <div
+              class="photo"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=82&quot;);
+              "
+            >
+              <div class="photo-title">Tokyo</div>
+            </div>
+            <div class="card-body">
+              <h3>Tokyo</h3>
+              <p class="muted">
+                Popular student city in Japan with education, lifestyle and
+                accommodation options depending on institution and location.
+              </p>
+            </div>
+          </div>
+          <div class="city-card">
+            <div
+              class="photo"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=900&q=82&quot;);
+              "
+            >
+              <div class="photo-title">Osaka</div>
+            </div>
+            <div class="card-body">
+              <h3>Osaka</h3>
+              <p class="muted">
+                Popular student city in Japan with education, lifestyle and
+                accommodation options depending on institution and location.
+              </p>
+            </div>
+          </div>
+          <div class="city-card">
+            <div
+              class="photo"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=82&quot;);
+              "
+            >
+              <div class="photo-title">Kyoto</div>
+            </div>
+            <div class="card-body">
+              <h3>Kyoto</h3>
+              <p class="muted">
+                Popular student city in Japan with education, lifestyle and
+                accommodation options depending on institution and location.
+              </p>
+            </div>
+          </div>
+          <div class="city-card">
+            <div
+              class="photo"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=82&quot;);
+              "
+            >
+              <div class="photo-title">Fukuoka</div>
+            </div>
+            <div class="card-body">
+              <h3>Fukuoka</h3>
+              <p class="muted">
+                Popular student city in Japan with education, lifestyle and
+                accommodation options depending on institution and location.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="visa-types" class="bg">
+      <div class="container">
+        <div class="head">
+          <span>Visa Categories</span>
+          <h2>Choose a visa / study pathway</h2>
+          <p class="muted">
+            Tap or click a category to open the general requirement checklist.
+          </p>
+        </div>
+        <div class="visa-grid">
+          <div class="visa-card" onclick="this.classList.toggle('open')">
+            <span class="visa-code">Student Visa</span>
+            <h3>Language School</h3>
+            <p class="muted">Japanese-language study</p>
+            <div class="requirement">
+              <b>General requirements</b>
+              <ul>
+                <li>COE / admission documents</li>
+                <li>Passport</li>
+                <li>Academic documents</li>
+                <li>Financial evidence</li>
+                <li>Study purpose</li>
+                <li>School-specific documents</li>
+              </ul>
+              <a class="btn" href="#apply" onclick="event.stopPropagation()"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+          <div class="visa-card" onclick="this.classList.toggle('open')">
+            <span class="visa-code">Student Visa</span>
+            <h3>University</h3>
+            <p class="muted">Bachelor / postgraduate study</p>
+            <div class="requirement">
+              <b>General requirements</b>
+              <ul>
+                <li>University admission</li>
+                <li>Academic transcripts</li>
+                <li>Passport</li>
+                <li>Financial evidence</li>
+                <li>Language evidence where required</li>
+                <li>COE and visa documents</li>
+              </ul>
+              <a class="btn" href="#apply" onclick="event.stopPropagation()"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="apply">
+      <div class="container">
+        <div class="head">
+          <span>Apply Now</span>
+          <h2>Request counseling for Japan</h2>
+        </div>
+        <form class="form" onsubmit="sendInquiry(event, 'Japan')">
+          <input id="nm" required placeholder="Full Name" /><input
+            id="ph"
+            required
+            placeholder="Phone Number"
+          /><select id="prog">
+            <option>Select preferred program</option>
+            <option>Student Visa — Language School</option>
+            <option>Student Visa — University</option></select
+          ><input id="qual" placeholder="Latest Qualification" /><textarea
+            id="msg"
+            placeholder="Tell us about your GPA, study gap, language score and preferred intake (optional)"
+          ></textarea
+          ><button class="btn" type="submit">Send Application Inquiry</button>
+        </form>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="wrap">
+        <!-- Main grid -->
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo">
+              <div class="logo-mark">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path
+                    d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"
+                  ></path>
+                </svg>
+              </div>
+              <div class="brand-name">GBS <span>International</span></div>
+            </div>
+            <p>
+              Guiding students and professionals through study, work, and
+              immigration journeys to 20+ countries since 2014.
+            </p>
+            <div class="social-row">
+              <a href="#" aria-label="Facebook"
+                ><svg viewBox="0 0 24 24">
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  /></svg
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><svg viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="3.6" />
+                  <circle cx="17.4" cy="6.6" r="1" /></svg
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path
+                    d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v-3"
+                  /></svg
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><svg viewBox="0 0 24 24">
+                  <rect x="3" y="6" width="18" height="12" rx="3" />
+                  <path d="M10 9.5l5 2.5-5 2.5z" /></svg
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Success Stories</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Study Abroad</a></li>
+              <li><a href="#services">Language Classes</a></li>
+              <li><a href="#services">Visa &amp; Documentation</a></li>
+              <li><a href="#services">Immigration Services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Destinations</h4>
+            <ul>
+              <li><a href="#">Japan</a></li>
+              <li><a href="#">South Korea</a></li>
+              <li><a href="#">UAE</a></li>
+              <li><a href="#">Qatar</a></li>
+              <li><a href="#">Canada</a></li>
+              <li><a href="#">Australia</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col contact-col">
+            <h4>Contact</h4>
+            <ul>
+              <li class="row">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                  <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Sallyan House, Kathmandu 44605, Nepal</span>
+              </li>
+              <li class="row">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <a href="tel:+97714123456">+977 1-412-3456</a>
+              </li>
+              <li class="row">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                  <path d="M4 4h16v16H4z" />
+                  <path d="M4 4l8 8 8-8" />
+                </svg>
+                <a href="mailto:info@gbsconsultancy.com.np"
+                  >info@gbsconsultancy.com.np</a
+                >
+              </li>
+              <li class="row">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 3" />
+                </svg>
+                <span>Sun – Fri, 10 AM – 6 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+          <p>
+            © 2026 GBS International Educational Consultancy. All rights
+            reserved.
+          </p>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function sendInquiry(e, c) {
+        e.preventDefault();
+        let n = document.getElementById("nm").value,
+          p = document.getElementById("ph").value,
+          g = document.getElementById("prog").value,
+          q = document.getElementById("qual").value,
+          m = document.getElementById("msg").value;
+        location.href =
+          "mailto:infogbsint@gmail.com?subject=" +
+          encodeURIComponent("GBS Application Inquiry - " + c + " - " + n) +
+          "&body=" +
+          encodeURIComponent(
+            "Name: " +
+              n +
+              "\nPhone: " +
+              p +
+              "\nCountry: " +
+              c +
+              "\nProgram: " +
+              g +
+              "\nQualification: " +
+              q +
+              "\n\nDetails: " +
+              m,
+          );
+      }
+    </script>
+  </body>
+</html>
