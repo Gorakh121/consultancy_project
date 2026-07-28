@@ -173,17 +173,16 @@ nav.main-nav .active::after {
   transform: translateY(1px);
 }
 .btn-primary {
-  background: var(--navy-950);
+  background: red;
   color: white;
 }
 .btn-primary:hover {
-  background: var(--navy-800);
+  background: var(--navy-950);
   box-shadow: var(--shadow-sm);
 }
 .btn-outline {
-  background: transparent;
-  color: var(--navy-950);
-  border-color: var(--navy-950);
+  background: red;
+  color: white;
 }
 .btn-outline:hover {
   background: var(--navy-950);
@@ -214,6 +213,9 @@ nav.main-nav .active::after {
     rgba(76, 40, 123, 0.92)
   );
   color: #fff;
+        padding: 92px 0 80px;
+        overflow: hidden;
+        position: relative;
   padding-top: 70px;
   overflow: hidden;
 }
@@ -227,7 +229,7 @@ nav.main-nav .active::after {
   z-index: 3;
 }
 .eyebrow {
-  color: var(--navy-700);
+  color: white;
   font-weight: 800;
   font-size: 0.82rem;
   letter-spacing: 2.2px;
@@ -237,22 +239,16 @@ nav.main-nav .active::after {
   align-items: center;
   gap: 10px;
 }
-.eyebrow::before {
-  content: "";
-  width: 28px;
-  height: 2px;
-  background: var(--gold);
-  display: inline-block;
-}
+
 .hero h1 {
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   line-height: 1.06;
   font-weight: 800;
   letter-spacing: -1px;
-  color: var(--ink);
+  color: white;
 }
 .hero h1 .accent {
-  color: var(--navy-700);
+  color: white;
 }
 .hero p.lede {
   margin-top: 22px;
@@ -262,7 +258,7 @@ nav.main-nav .active::after {
   max-width: 480px;
 }
 .hero p.lede b {
-  color: var(--ink);
+  color: white;
 }
 .hero-ctas {
   display: flex;
@@ -317,57 +313,7 @@ nav.main-nav .active::after {
   z-index: 1;
 }
 
-.stats-bar {
-  position: relative;
-  z-index: 6;
-  margin-top: -46px;
-}
-.stats-inner {
-  background: var(--navy-950);
-  border-radius: 16px;
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 26px 40px;
-  color: black;
-}
-.stat {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex: 1;
-  justify-content: center;
-}
-.stat + .stat {
-  border-left: 1px solid rgba(255, 255, 255, 0.18);
-}
-.stat-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.stat-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke: var(--gold);
-}
-.stat-num {
-  font-size: 1.5rem;
-  font-weight: 800;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.78rem;
-  color: #c7d4ea;
-  margin-top: 4px;
-  font-weight: 500;
-}
+
 
 /* ---------- SERVICES STRIP ---------- */
 .services-strip {
