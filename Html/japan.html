@@ -4,357 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Study in Japan | GBS International</title>
-    <style>
-      :root {
-        --navy: #0b2552;
-        --blue: #1555a4;
-        --red: #cf2335;
-        --purple: #4c287b;
-        --ink: #172033;
-        --muted: #687386;
-        --bg: #f5f7fb;
-        --line: #e4e9f1;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-        color: var(--ink);
-        background: white;
-        line-height: 1.6;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      .container {
-        width: min(1180px, 92%);
-        margin: auto;
-      }
-      nav {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--line);
-      }
-      .nav {
-        height: 74px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-      }
-      .brand {
-        font-weight: 900;
-        color: var(--navy);
-        font-size: 20px;
-      }
-      .brand b {
-        color: var(--red);
-      }
-      .links {
-        display: flex;
-        gap: 18px;
-        align-items: center;
-        font-size: 14px;
-        font-weight: 700;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, var(--red), #b71d30);
-        color: #fff;
-        padding: 12px 18px;
-        border-radius: 10px;
-        font-weight: 800;
-        border: 0;
-        cursor: pointer;
-        box-shadow: 0 7px 18px rgba(207, 35, 53, 0.18);
-      }
-      .hero {
-        min-height: 600px;
-        display: flex;
-        align-items: end;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        color: #fff;
-      }
-      .hero:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          90deg,
-          rgba(7, 27, 62, 0.92),
-          rgba(76, 40, 123, 0.45) 60%,
-          rgba(0, 0, 0, 0.18)
-        );
-      }
-      .hero .container {
-        position: relative;
-        z-index: 2;
-        padding-bottom: 72px;
-      }
-      .eyebrow {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 900;
-        font-size: 12px;
-        color: #d8e6ff;
-      }
-      .hero h1 {
-        font-size: clamp(44px, 7vw, 78px);
-        line-height: 1.02;
-        margin: 12px 0;
-      }
-      .hero p {
-        max-width: 760px;
-        font-size: 19px;
-        color: #edf2fb;
-      }
-      section {
-        padding: 72px 0;
-      }
-      .bg {
-        background: var(--bg);
-      }
-      .head {
-        max-width: 760px;
-        margin-bottom: 30px;
-      }
-      .head span {
-        color: var(--red);
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-size: 12px;
-      }
-      .head h2 {
-        font-size: clamp(30px, 4vw, 46px);
-        line-height: 1.12;
-        color: var(--navy);
-        margin: 8px 0;
-      }
-      .muted {
-        color: var(--muted);
-      }
-      .country-grid,
-      .city-grid,
-      .visa-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-      }
-      .country-card,
-      .city-card,
-      .visa-card {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 12px 35px rgba(16, 35, 67, 0.08);
-        transition: 0.25s;
-      }
-      .country-card:hover,
-      .visa-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 18px 45px rgba(16, 35, 67, 0.14);
-      }
-      .photo {
-        height: 260px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-      }
-      .photo:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          transparent 38%,
-          rgba(5, 20, 48, 0.88)
-        );
-      }
-      .photo-title {
-        position: absolute;
-        z-index: 2;
-        left: 20px;
-        right: 20px;
-        bottom: 18px;
-        color: #fff;
-        font-size: 24px;
-        font-weight: 900;
-      }
-      .card-body {
-        padding: 20px;
-      }
-      .city-card .photo {
-        height: 240px;
-      }
-      .city-card h3 {
-        color: var(--navy);
-        margin: 0;
-      }
-      .visa-card {
-        padding: 24px;
-        cursor: pointer;
-        position: relative;
-      }
-      .visa-code {
-        display: inline-block;
-        background: #eef3fb;
-        color: var(--navy);
-        padding: 7px 10px;
-        border-radius: 8px;
-        font-weight: 900;
-      }
-      .visa-card h3 {
-        color: var(--navy);
-        margin: 14px 0 5px;
-      }
-      .visa-card:after {
-        content: "View requirements →";
-        display: block;
-        color: var(--red);
-        font-weight: 900;
-        margin-top: 18px;
-      }
-      .requirement {
-        display: none;
-        margin-top: 16px;
-        padding-top: 16px;
-        border-top: 1px solid var(--line);
-      }
-      .visa-card.open .requirement {
-        display: block;
-      }
-      .requirement ul {
-        padding-left: 20px;
-      }
-      .apply {
-        background: linear-gradient(115deg, var(--navy), var(--purple));
-        color: #fff;
-        border-radius: 26px;
-        padding: 42px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 30px;
-        align-items: center;
-      }
-      .apply h2 {
-        margin: 0;
-        font-size: 38px;
-      }
-      .apply p {
-        color: #e7edf8;
-      }
-      .form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .form input,
-      .form select,
-      .form textarea {
-        width: 100%;
-        padding: 14px;
-        border: 1px solid #dfe5ee;
-        border-radius: 10px;
-        font: inherit;
-      }
-      .form textarea {
-        grid-column: 1/-1;
-        min-height: 120px;
-      }
-      .form button {
-        grid-column: 1/-1;
-      }
-      footer {
-        background: #071a3a;
-        color: #dce5f4;
-        padding: 45px 0;
-        margin-top: 40px;
-      }
-      .notice {
-        font-size: 12px;
-        color: #aebbd0;
-        margin-top: 20px;
-      }
-      @media (max-width: 850px) {
-        .links a:not(.btn) {
-          display: none;
-        }
-        .country-grid,
-        .city-grid,
-        .visa-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .apply {
-          grid-template-columns: 1fr;
-        }
-        .hero {
-          min-height: 520px;
-        }
-      }
-      @media (max-width: 560px) {
-        .container {
-          width: min(94%, 1180px);
-        }
-        .country-grid,
-        .city-grid,
-        .visa-grid {
-          grid-template-columns: 1fr;
-        }
-        .photo {
-          height: 245px;
-        }
-        .city-card .photo {
-          height: 230px;
-        }
-        .hero {
-          min-height: 500px;
-        }
-        .hero .container {
-          padding-bottom: 48px;
-        }
-        .hero p {
-          font-size: 16px;
-        }
-        .apply {
-          padding: 28px 20px;
-        }
-        .apply h2 {
-          font-size: 30px;
-        }
-        .form {
-          grid-template-columns: 1fr;
-        }
-        .form textarea,
-        .form button {
-          grid-column: auto;
-        }
-        .nav {
-          height: 66px;
-        }
-        .brand {
-          font-size: 16px;
-        }
-      }
-    </style>
+   <link rel="stylesheet" href="../Css/japan.css">
   </head>
   <body>
-   <header class="site-header">
+    <header class="site-header">
       <div class="wrap nav-inner">
         <div class="logo">
           <div class="logo-mark">
@@ -378,12 +31,11 @@
         </div>
         <nav class="main-nav">
           <ul>
-            <li><a href="#Home" class="active">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#Destination">Destinations</a></li>
-            <li><a href="#">Processes</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="../Html/Index.html#home" class="active">Home</a></li>
+            <li><a href="../Html/Index.html#about">About Us</a></li>
+            <li><a href="../Html/Index.html#services">Services</a></li>
+            <li><a href="../Html/Index.html#Destination">Destinations</a></li>
+            <li><a href="../Html/Index.html#contact">Contact Us</a></li>
           </ul>
         </nav>
         <div class="header-actions">
@@ -608,30 +260,19 @@
               immigration journeys to 20+ countries since 2014.
             </p>
             <div class="social-row">
-              <a href="#" aria-label="Facebook"
+              <a href="https://www.facebook.com/profile.php?id=100068303222432" aria-label="Facebook"
                 ><svg viewBox="0 0 24 24">
                   <path
                     d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
                   /></svg
               ></a>
-              <a href="#" aria-label="Instagram"
+              <a href="https://www.instagram.com/gbs.educational/" aria-label="Instagram"
                 ><svg viewBox="0 0 24 24">
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="3.6" />
                   <circle cx="17.4" cy="6.6" r="1" /></svg
               ></a>
-              <a href="#" aria-label="LinkedIn"
-                ><svg viewBox="0 0 24 24">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path
-                    d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v-3"
-                  /></svg
-              ></a>
-              <a href="#" aria-label="YouTube"
-                ><svg viewBox="0 0 24 24">
-                  <rect x="3" y="6" width="18" height="12" rx="3" />
-                  <path d="M10 9.5l5 2.5-5 2.5z" /></svg
-              ></a>
+            
             </div>
           </div>
 
@@ -639,7 +280,7 @@
             <h4>Company</h4>
             <ul>
               <li><a href="#about">About Us</a></li>
-              <li><a href="#">Our Team</a></li>
+              <li><a href="./about.html#teams">Our Team</a></li>
               <li><a href="#">Success Stories</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#">Blog</a></li>
@@ -649,10 +290,11 @@
           <div class="footer-col">
             <h4>Services</h4>
             <ul>
-              <li><a href="#services">Study Abroad</a></li>
-              <li><a href="#services">Language Classes</a></li>
-              <li><a href="#services">Visa &amp; Documentation</a></li>
-              <li><a href="#services">Immigration Services</a></li>
+             <li><a href="../Html/Index.html#home" class="active">Home</a></li>
+            <li><a href="../Html/Index.html#about">About Us</a></li>
+            <li><a href="../Html/Index.html#services">Services</a></li>
+            <li><a href="../Html/Index.html#Destination">Destinations</a></li>
+            <li><a href="../Html/Index.html#contact">Contact Us</a></li>
             </ul>
           </div>
 
@@ -661,8 +303,7 @@
             <ul>
               <li><a href="#">Japan</a></li>
               <li><a href="#">South Korea</a></li>
-              <li><a href="#">UAE</a></li>
-              <li><a href="#">Qatar</a></li>
+              <li><a href="#">new-zealand</a></li>
               <li><a href="#">Canada</a></li>
               <li><a href="#">Australia</a></li>
             </ul>
@@ -684,15 +325,15 @@
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"
                   />
                 </svg>
-                <a href="tel:+97714123456">+977 1-412-3456</a>
+                <a href="tel:+977-9744427779">+977-9744427779</a>
               </li>
               <li class="row">
                 <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
                   <path d="M4 4h16v16H4z" />
                   <path d="M4 4l8 8 8-8" />
                 </svg>
-                <a href="mailto:info@gbsconsultancy.com.np"
-                  >info@gbsconsultancy.com.np</a
+                <a href="mailto:gbsinternationaleducationalcon@gmail.com"
+                  >gbsinternationaleducationalcon@gmail.com</a
                 >
               </li>
               <li class="row">
