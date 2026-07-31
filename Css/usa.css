@@ -1278,4 +1278,212 @@ nav.main-nav .active::after {
     transform: scale(1.1);
     background: #1ebe5d;
     color: white;
+}/* =====================================================
+   MOBILE RESPONSIVENESS OVERHAUL
+   ===================================================== */
+
+/* Prevent any stray element from forcing horizontal scroll */
+html, body {
+  max-width: 100%;
 }
+
+/* ---------- Tablet & below (≤ 900px) ---------- */
+@media (max-width: 900px) {
+  .wrap {
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 36px;
+  }
+  .hero {
+    padding: 32px 0 64px;
+  }
+  .hero-copy {
+    text-align: left;
+  }
+  .hero-art {
+    height: 340px;
+    order: -1;
+  }
+  .hero p.lede {
+    max-width: 100%;
+  }
+
+  /* Services strip under hero */
+  .services-strip {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 32px auto 0;
+    row-gap: 24px;
+  }
+  .service-mini {
+    border-right: none;
+    border-bottom: 1px solid #eef1f6;
+    padding-bottom: 18px;
+  }
+  .service-mini:nth-child(2n) {
+    border-right: none;
+  }
+
+  /* About */
+  .about-section {
+    padding: 90px 0 70px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .about-media {
+    order: -1;
+  }
+}
+
+/* ---------- Mobile navigation (≤ 860px) ---------- */
+@media (max-width: 860px) {
+  .nav-inner {
+    height: 72px;
+  }
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+  .header-actions {
+    gap: 10px;
+  }
+  .header-actions .btn-primary span,
+  .header-actions .btn-primary {
+    font-size: 0;
+    padding: 10px;
+    gap: 0;
+  }
+  .header-actions .btn-primary svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  nav.main-nav {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0 16px 30px -10px rgba(10, 26, 53, 0.18);
+    transition: max-height 0.3s ease;
+    z-index: 99;
+  }
+  nav.main-nav.open {
+    max-height: 420px;
+  }
+  nav.main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 24px 20px;
+  }
+  nav.main-nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #eef1f6;
+  }
+  nav.main-nav ul li:last-child {
+    border-bottom: none;
+  }
+  nav.main-nav a {
+    display: block;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+  nav.main-nav .active::after {
+    display: none;
+  }
+}
+
+/* ---------- Small phones (≤ 600px) ---------- */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 0 18px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-ctas .btn {
+    justify-content: center;
+  }
+  .hero-art {
+    height: 240px;
+  }
+
+  .services-strip {
+    grid-template-columns: 1fr;
+    padding: 28px 16px;
+  }
+  .service-mini {
+    padding: 6px 4px;
+  }
+
+  .about-grid h2 {
+    font-size: 1.9rem;
+  }
+
+  .handle-section h2 {
+    font-size: 2rem;
+  }
+  .handle-section > .wrap > p {
+    margin-bottom: 40px;
+  }
+
+  .head h2 {
+    font-size: 28px;
+  }
+
+  .contact-header p {
+    margin-bottom: 40px;
+  }
+  .contact-form-card {
+    padding: 26px 18px;
+  }
+
+  .footer-cta {
+    text-align: left;
+  }
+  .footer-cta h3 {
+    font-size: 1.35rem;
+  }
+
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
+  .whatsapp-container {
+    bottom: 16px;
+    right: 16px;
+  }
+  .whatsapp-tooltip {
+    display: none;
+  }
+}
+
+/* ---------- Logo sizing on very small screens ---------- */
+@media (max-width: 420px) {
+  .logo-text .brand img,
+  .brand img {
+    width: 100px !important;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+}
+
