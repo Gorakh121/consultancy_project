@@ -203,6 +203,19 @@ nav.main-nav .active::after {
   font-size: 1.6rem;
   color: var(--navy-950);
 }
+
+
+
+ 
+    
+      .container {
+        width: min(1180px, 92%);
+        margin: auto;
+      }
+    
+    
+
+
       .hero {
         min-height: 600px;
         display: flex;
