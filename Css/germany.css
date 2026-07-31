@@ -1221,7 +1221,9 @@ nav.main-nav .active::after {
   border: none;
   font-size: 1.6rem;
   color: var(--navy-950);
-}/* WhatsApp Container */
+
+}
+/* WhatsApp Container */
 .whatsapp-container {
     position: fixed;
     bottom: 25px;

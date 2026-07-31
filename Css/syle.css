@@ -376,7 +376,6 @@ nav.main-nav .active::after {
   color: var(--slate);
   line-height: 1.4;
 }
-
 /* ---------- ABOUT ---------- */
 .about-section {
   padding: 150px 0 100px;
@@ -408,7 +407,8 @@ nav.main-nav .active::after {
       .about-slide img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        background: var(--navy-950);
         display: block;
       }
       .about-slider-arrow {
@@ -461,11 +461,52 @@ nav.main-nav .active::after {
         background: #e4cf80;
         transform: scale(1.2);
       }
+
+@media (max-width:480px){
+
+    .about-slider{
+        aspect-ratio:1/1;
+    }
+
+}
       @media (min-width: 861px) {
         .about-media {
           transform: none;
         }
       }
+
+      @media (max-width: 992px) {
+    .about-slider {
+        aspect-ratio: 16 / 11;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .about-grid{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .about-slider{
+        width:100%;
+        aspect-ratio:4/3;
+    }
+
+    .about-slide img{
+        height:auto;
+        object-fit:cover;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .about-slider{
+        aspect-ratio:1/1;
+    }
+
+}
       @media (max-width: 860px) {
         .about-slider {
           aspect-ratio: 16 / 11;
@@ -1645,7 +1686,6 @@ html, body {
 
     .about-slider{
         width:100%;
-        transform: translateX(-20px);
         max-width:100%;
         aspect-ratio:16/10;
         max-height:none;
@@ -1678,7 +1718,6 @@ html, body {
     .about-slider{
         border-radius:14px;
         aspect-ratio:16/11;
-        transform: translateX(-20px);
     }
 
     .about-grid h2{

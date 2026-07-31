@@ -22,7 +22,7 @@
     <img src="../Images/logo.png" alt="GBS Logo" style="width: 130px; height: auto;">
 </div>             </div>
         </div>
-        <nav class="main-nav">
+        <nav class="main-nav" id="mainNav">
           <ul>
            <li><a href="../Index.html#home" class="active">Home</a></li>
             <li><a href="../Index.html#about">About Us</a></li>
@@ -46,7 +46,7 @@
             </svg>
             Book a Consultation
           </a>
-          <button class="menu-toggle" aria-label="Menu">☰</button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
         </div>
       </div>
     </header>
@@ -366,6 +366,37 @@
        aria-label="Chat on WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>    </a> </div>
     <script>
+      // Mobile navigation toggle
+      (function () {
+        var toggle = document.getElementById("menuToggle");
+        var nav = document.getElementById("mainNav");
+        if (!toggle || !nav) return;
+
+        function closeMenu() {
+          nav.classList.remove("open");
+          toggle.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = "☰";
+        }
+
+        toggle.addEventListener("click", function () {
+          var isOpen = nav.classList.toggle("open");
+          toggle.classList.toggle("active", isOpen);
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          toggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close menu after tapping a link
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+
+        // Close menu if window is resized back to desktop width
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 860) closeMenu();
+        });
+      })();
+
       function sendInquiry(e, c) {
         e.preventDefault();
         let n = document.getElementById("nm").value,
