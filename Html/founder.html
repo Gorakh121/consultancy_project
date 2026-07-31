@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founder — Nisha Neupane | GBS International</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1f3d;
+      --navy-deep: #061630;
+      --navy-700: #1a4488;
+      --gold: #c9a227;
+      --gold-soft: #e4cf80;
+      --cream: #f6f1e4;
+      --paper: #fbf8f0;
+      --ink: #1c1c1c;
+      --red: #cf2335;
+      --line: rgba(10, 31, 61, 0.14);
+      --shadow: 0 20px 45px rgba(10, 31, 61, 0.14);
+      --shadow-sm: 0 8px 24px -12px rgba(10, 26, 53, 0.25);
+      --slate-lt: rgba(255, 255, 255, 0.7);
+      --divider: rgba(255, 255, 255, 0.12);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    .display {
+      font-family: 'Fraunces', serif;
+      font-optical-sizing: auto;
+      color: var(--navy);
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(10, 26, 53, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-text .brand img {
+      width: 130px;
+      height: auto;
+    }
+
+    nav.main-nav ul {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+
+    nav.main-nav a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+
+    nav.main-nav a:hover {
+      color: var(--navy-700);
+    }
+
+    nav.main-nav .active {
+      color: var(--navy-700);
+    }
+    nav.main-nav .active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background: var(--navy-700);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 13px 24px;
+      border-radius: 10px;
+      border: 1.5px solid transparent;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--navy-950);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--navy-950);
+    }
+
+    .founder-hero {
+      background: linear-gradient(135deg, var(--navy-deep) 0%,#1a2f4f 100%);
+      color: white;
+      padding: 70px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-hero::after {
+      position: absolute;
+      right: -20px;
+      bottom: -40px;
+      font-size: 220px;
+      color: rgba(201, 162, 39, 0.08);
+      font-family: serif;
+      pointer-events: none;
+    }
+
+    .founder-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .founder-hero-content h1 {
+      color: white;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.12;
+      margin-top: 8px;
+    }
+
+    .founder-hero-content h1 em {
+      font-style: italic;
+      color: var(--gold-soft);
+    }
+
+    .founder-hero-content .title-role {
+      font-size: 1.2rem;
+      color: var(--gold-soft);
+      font-weight: 500;
+      margin: 6px 0 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .founder-hero-content .bio-short {
+      max-width: 48ch;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .founder-hero-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-frame {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--gold-soft);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      background: #d9d2c0;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== BIOGRAPHY DETAIL ===== */
+    .bio-section {
+      padding: 70px 0 50px;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .bio-main p {
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .bio-main p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bio-highlights {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .bio-highlights h3 {
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bio-highlights h3 i {
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .highlight-item:last-child {
+      border-bottom: none;
+    }
+
+    .highlight-item .icon {
+      width: 32px;
+      color: var(--gold);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .highlight-item .text {
+      font-size: 0.95rem;
+      color: #2a2a2a;
+    }
+
+    .highlight-item .text strong {
+      color: var(--navy);
+    }
+
+    /* ===== MISSION / VISION STRIP ===== */
+    .mission-strip {
+      background: var(--navy);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .mission-strip .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .mission-strip h4 {
+      font-family: 'Fraunces', serif;
+      color: white;
+      font-size: 1.15rem;
+      margin: 8px 0 6px;
+    }
+
+    .mission-strip p {
+      color: rgba(246, 241, 228, 0.8);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ===== CONTACT CARD ===== */
+    .contact-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin: 40px 0 20px;
+    }
+
+    .contact-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-card .sub {
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px 50px;
+    }
+
+    .contact-details a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color 0.2s ease;
+      font-size: 0.98rem;
+    }
+
+    .contact-details a i {
+      color: var(--gold);
+      font-size: 1.2rem;
+      width: 24px;
+    }
+
+    .contact-details a:hover {
+      color: var(--red);
+    }
+
+    /* ===== FOOTER (same as your site) ===== */
+    footer.site-footer {
+      background: linear-gradient(115deg, rgba(11, 37, 82, 0.98), rgba(76, 40, 123, 0.95));
+      color: #fff;
+      padding-top: 70px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr) 1.2fr;
+      gap: 32px;
+      padding-bottom: 50px;
+    }
+
+    .footer-brand .brand-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .footer-brand .brand-name span {
+      color: #7fa6e0;
+    }
+    .footer-brand p {
+      color: var(--slate-lt);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+    }
+    .social-row a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .social-row a:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
+    }
+    .social-row svg {
+      width: 16px;
+      height: 16px;
+      stroke: #fff;
+      fill: none;
+    }
+    .social-row a:hover svg {
+      stroke: var(--ink);
+    }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-col a {
+      color: var(--slate-lt);
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .contact-col .row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .contact-col svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-col span,
+    .contact-col a {
+      font-size: 0.88rem;
+      color: var(--slate-lt);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--divider);
+      padding: 24px 0;
+      text-align: center;
+    }
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+    }
+
+    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    .whatsapp-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .whatsapp-tooltip {
+      background: #ffffff;
+      color: #333;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      font-size: 13px;
+      line-height: 1.3;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .whatsapp-container:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .whatsapp-float {
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================================================
+       RESPONSIVE MEDIA QUERIES
+       ========================================================= */
+    @media (max-width: 980px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .mission-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-inner {
+        height: 72px;
+      }
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.main-nav {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 16px 30px -10px rgba(10, 26, 53, 0.18);
+        transition: max-height 0.3s ease;
+        z-index: 99;
+      }
+
+      nav.main-nav.open {
+        max-height: 380px;
+      }
+
+      nav.main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 24px;
+      }
+
+      nav.main-nav ul li {
+        width: 100%;
+        border-bottom: 1px solid #eef1f6;
+      }
+
+      nav.main-nav a {
+        display: block;
+        padding: 12px 0;
+      }
+
+      nav.main-nav .active::after {
+        display: none;
+      }
+
+      .founder-hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .founder-hero-content .bio-short {
+        margin: 0;
+      }
+
+      .photo-frame {
+        max-width: 260px;
+      }
+
+      .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .mission-strip {
+        grid-template-columns: 1fr;
+        padding: 30px 24px;
+      }
+
+      .contact-details {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+    }
+
+    
+
+    @media (max-width: 600px) {
+      .wrap {
+        padding: 0 18px;
+      }
+      .header-actions .btn-primary {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .whatsapp-tooltip {
+        display: none;
+      }
+      .whatsapp-float {
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+      }
+
+      .founder-hero {
+        padding: 50px 0 40px;
+      }
+
+      .bio-section {
+        padding: 40px 0 30px;
+      }
+
+      .contact-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER (matches your site) ===== -->
+  <header class="site-header">
+    <div class="wrap nav-inner">
+      <div class="logo">
+        <div class="logo-text">
+          <div class="brand">
+            <img src="../Images/logo.png" alt="GBS Logo" />
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="../Index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="../Index.html#services">Services</a></li>
+          <li><a href="../Index.html#Destination">Destinations</a></li>
+          <li><a href="../Index.html#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+            <path d="M16 2v4M8 2v4M3 10h18"></path>
+          </svg>
+          Book Consultation
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FOUNDER HERO ===== -->
+  <section class="founder-hero">
+    <div class="wrap founder-hero-inner">
+      <div class="founder-hero-content">
+        <span class="eyebrow">Founder &amp; Managing Director</span>
+        <h1>Nisha <em>Neupane</em></h1>
+        <div class="title-role">G.B.S International Educational Consultancy</div>
+        <p class="bio-short">
+          A passionate educator and visionary leader dedicated to helping Nepali students
+          access quality international education with integrity, transparency, and
+          personalized support.
+        </p>
+      </div>
+      <div class="founder-hero-photo">
+        <div class="photo-frame">
+          <!-- Replace src with actual photo path -->
+          <img src="../Images/index (2).jpeg" alt="Nisha Neupane - Founder of GBS International" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BIOGRAPHY DETAIL ===== -->
+  <section class="bio-section">
+    <div class="wrap bio-grid">
+      <div class="bio-main">
+        <span class="eyebrow">Biography</span>
+        <h2 style="margin-top: 6px; margin-bottom: 18px; font-size: 1.8rem;">A leader committed to student success</h2>
+
+        <p>
+          <strong>Nisha Neupane</strong> is the Founder of G.B.S International Educational Consultancy, a Nepal-based
+          education consultancy dedicated to helping students achieve their dreams of studying abroad.
+          With a strong commitment to quality education, ethical counseling, and student success, she has
+          guided many aspiring students in making informed decisions about their academic and professional
+          futures.
+        </p>
+
+        <p>
+          Originally from Simara, Nepal, Nisha has always been passionate about education and lifelong
+          learning. She completed her higher secondary education at St. Lawrence College, Chabahil,
+          Kathmandu, and earned her <strong>Master of Arts (M.A.) in English</strong> from Padma Kanya
+          Multiple Campus. She is currently pursuing an MPhil, reflecting her dedication to academic
+          excellence and continuous professional growth.
+        </p>
+
+        <p>
+          In addition to her academic achievements, Nisha is a <strong>Yoga Instructor</strong> and
+          <strong>YouTube educator</strong>, where she shares educational and motivational content to
+          inspire learners beyond the classroom. She believes that education is a powerful tool for
+          personal growth and positive social change.
+        </p>
+
+        <p>
+          She has also completed online professional training in Microsoft Excel, Microsoft PowerPoint,
+          and English language training, enabling her to combine technical expertise with effective
+          communication and leadership skills.
+        </p>
+
+        <p>
+          As the Founder of G.B.S International Educational Consultancy, Nisha is committed to providing
+          transparent, reliable, and student-centered educational guidance. Her vision is to connect
+          Nepalese students with quality international education opportunities while ensuring they receive
+          honest advice and comprehensive support throughout their study abroad journey.
+        </p>
+
+        <p>
+          With a passion for education, leadership, and service, Nisha continues to inspire students to
+          pursue their ambitions with confidence. She believes that success comes through integrity,
+          perseverance, continuous learning, and a genuine desire to make a positive difference in the
+          lives of others. Her goal is to inspire others through knowledge, integrity, and lifelong
+          learning while creating opportunities that help individuals build brighter futures.
+        </p>
+      </div>
+
+      <!-- ===== HIGHLIGHTS SIDEBAR ===== -->
+      <div class="bio-highlights">
+        <h3><i class="fas fa-star"></i> At a Glance</h3>
+
+        <div class="highlight-item">
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="text"><strong>M.A. in English</strong> — Padma Kanya Multiple Campus</div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon"><i class="fas fa-book-open"></i></div>
+          <div class="text">Currently pursuing <strong>MPhil</strong> in English</div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="text"><strong>Yoga Instructor</strong> &amp; <strong>YouTube Educator</strong></div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon"><i class="fas fa-laptop"></i></div>
+          <div class="text">Professional training in <strong>Excel, PowerPoint, &amp; English</strong></div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon"><i class="fas fa-globe-asia"></i></div>
+          <div class="text">Founder of <strong>G.B.S International</strong> — guiding students abroad</div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          <div class="text">Passionate about <strong>education, integrity,</strong> and <strong>lifelong learning</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION / VISION STRIP ===== -->
+  <div class="wrap">
+    <div class="mission-strip">
+      <div>
+        <span class="eyebrow">Mission</span>
+        <h4>Empower through education</h4>
+        <p>To help every student choose the right academic pathway with clear, transparent guidance and complete support from application to departure.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Vision</span>
+        <h4>Global opportunities for all</h4>
+        <p>To connect Nepalese students with quality international education while ensuring honest advice and comprehensive support throughout their journey.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Core Belief</span>
+        <h4>Integrity &amp; lifelong learning</h4>
+        <p>Success comes through integrity, perseverance, continuous learning, and a genuine desire to make a positive difference in others' lives.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT CARD ===== -->
+  <div class="wrap">
+    <div class="contact-card">
+      <h3>Connect with Nisha Neupane</h3>
+      <p class="sub">Have questions or want to discuss your study abroad plans? Reach out directly.</p>
+      <div class="contact-details">
+        <a href="tel:+9779707861721"><i class="fas fa-phone-alt"></i> +977-9707861721</a>
+        <a href="mailto:nishaneupane11@gmail.com"><i class="fas fa-envelope"></i> nishaneupane11@gmail.com</a>
+        <a href="https://www.youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER (matches your site) ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">GBS <span>International</span></div>
+          <p>Guiding students and professionals through study, work, and immigration journeys since 2014.</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/profile.php?id=100068303222432" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/gbs.educational/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="3.6" />
+                <circle cx="17.4" cy="6.6" r="1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="founder.html">Our Founder</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../Index.html#services">Study Abroad</a></li>
+            <li><a href="../Index.html#services">Language Classes</a></li>
+            <li><a href="../Index.html#services">Visa &amp; Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="#">Japan</a></li>
+            <li><a href="#">South Korea</a></li>
+            <li><a href="#">New Zealand</a></li>
+            <li><a href="#">Canada</a></li>
+            <li><a href="#">Australia</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col contact-col">
+          <h4>Contact</h4>
+          <ul>
+            <li class="row">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Sallyan House, Kathmandu 44605, Nepal</span>
+            </li>
+            <li class="row">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <a href="tel:+977-9744427779">+977-9744427779</a>
+            </li>
+            <li class="row">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none">
+                <path d="M4 4h16v16H4z" />
+                <path d="M4 4l8 8 8-8" />
+              </svg>
+              <a href="mailto:gbsinternationaleducationalcon@gmail.com">gbsinternationaleducationalcon@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 GBS International Educational Consultancy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+  <div class="whatsapp-container">
+    <div class="whatsapp-tooltip">
+      Need Help?<br /><strong>Chat with us</strong>
+    </div>
+    <a href="https://wa.me/9779744427779?text=Hello%20GBS%20International%20Educational%20Consultancy.%20I%20would%20like%20to%20know%20more%20about%20studying%20abroad." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ===== MOBILE TOGGLE SCRIPT ===== -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', function() {
+        mainNav.classList.toggle('open');
+      });
+
+      // Close menu when a link is clicked (for better UX)
+      const navLinks = mainNav.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mainNav.classList.remove('open');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
