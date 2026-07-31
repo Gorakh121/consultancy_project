@@ -387,17 +387,14 @@ nav.main-nav .active::after {
     position: relative;
     width: 100%;
 }
-      .about-slider {
-        position: relative;
-        width: 125%;
-        transform: translateX(-30px);
-        aspect-ratio: 4/ 5;
-        max-height: 520px;
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: 0 24px 48px rgba(14, 42, 82, 0.18);
-        background: #0e2a52;
-      }
+    .about-slider{
+    width:100%;
+    aspect-ratio:4/3;
+    max-height:520px;
+    border-radius:18px;
+    overflow:hidden;
+    transform:none;
+}
       .about-slider-track {
         display: flex;
         width: 300%;
