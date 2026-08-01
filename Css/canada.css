@@ -660,6 +660,42 @@ nav.main-nav .active::after {
   padding: 0 40px;
 }
 
+
+/* ---------- CTA ---------- */
+  .cta {
+    text-align: center;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 50px 24px;
+  }
+
+  .cta h2 { font-size: 1.8rem; margin: 10px 0; }
+  .cta p { color: #4a4a4a; margin-bottom: 24px; }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-weight: 700;
+    padding: 14px 34px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.15s ease;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(201,162,39,0.35);
+  }
 /* ---------- NEWSLETTER STRIP ---------- */
 .footer-cta {
   display: flex;

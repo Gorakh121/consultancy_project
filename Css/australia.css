@@ -624,6 +624,14 @@ background: linear-gradient(
     transition: all 0.15s ease;
   }
 
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
   .btn-gold:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(201,162,39,0.35);
